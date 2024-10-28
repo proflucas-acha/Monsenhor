@@ -1,0 +1,160 @@
+/* Define o estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #4169E1;
+    padding: 24px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+  font-size: 60px;
+}
+
+/* Estilo do menu de navegação */
+nav ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+    display: flex; /* Faz com que as abas fiquem em linha */
+    justify-content: center;
+    background-color: #333;
+}
+
+nav ul li {
+    margin: 2px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    background-color: #333;
+    border-radius: 20px;
+}
+
+nav ul li a:hover {
+    background-color: #4682B4;
+}
+
+/* Define o estilo padrão para as seções (começam ocultas) */
+.section {
+    display: none;
+    padding: 20px;
+}
+
+/* A seção ativa é visível */
+.section.active {
+    display: block;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    padding: 20px;
+    text-align: center;
+ 
+}
+body {
+    background-color: #f5f5dc; /* Substitua o código de cor aqui */
+}
+
+img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Responsividade para telas menores (celulares) */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* As abas ficam empilhadas verticalmente em telas pequenas */
+    }
+
+}
+
+
+ .logo {
+            position: absolute;
+            top: -13px;
+            right: 10px;
+            width: 300px; /* Ajuste o tamanho da imagem aqui */
+}
+.antiga {
+  max-width: 400px; /* Reduz o tamanho das imagens */
+  height: auto; /* Mantém a proporção das imagens */
+}
+.nova {
+  max-width: 460px; /* Reduz o tamanho das imagens */
+  height: auto; /* Mantém a proporção das imagens */
+}
+p2 {
+  font-size: 14px;
+  color: #333;
+  margin-top: 0px; /* Espaçamento entre a imagem e a descrição */
+}
+
+@media (max-width: 768px) {
+  .logo {
+    position: relative; /* Muda o posicionamento para "relative" no mobile */
+    top: 0;
+    right: -10;
+    margin: 0 auto; /* Centraliza o logo horizontalmente */
+    display: block;
+    width: 350px; /* Reduz o tamanho do logo para caber melhor na tela menor */
+  }
+}
+
+#projeto-erer .activity-card {
+      background-color: #b3e5fc; /* Azul céu um pouco mais escuro */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Centraliza o contêiner e adiciona espaço em cima e embaixo */
+    max-width: 600px; /* Define uma largura máxima para o contêiner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#projeto-erer h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 0;
+}
+
+#projeto-erer p {
+    font-size: 1em;
+    color: #555;1.6;
+    margin: 10px 0;
+}
+#projeto-erer .image-gallery {
+    display: flex;
+    flex-direction: column; /* Coloca os GIFs um em cima do outro */
+    align-items: center;    /* Centraliza os GIFs horizontalmente */
+    gap: 15px;              /* Espaço entre os GIFs */
+}
+
+#projeto-erer .image-gallery img {
+    width: 45%;             /* Reduz o tamanho para 60% da largura original */
+    height: auto;           /* Mantém a proporção da altura */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para telas menores */
+@media (max-width: 600px) {
+    #projeto-erer .image-gallery {
+        flex-direction: column;
+    }
+    
+    #projeto-erer .image-gallery img {
+        width: 100%; /* Ocupará toda a largura disponível */
+        margin-bottom: 10px; /* Espaçamento entre as imagens */
+    }
+}

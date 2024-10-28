@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal do Monsenhor</title>
+      <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho do site com o título -->
+    <header>
+        <h1>Jornal do Monsenhor</h1>
+      
+<!-- Logo da Escola -->
+ <img src='https://i.imgur.com/44OshaP.jpeg' border='0' alt='Logo' class="logo"/></a>  
+ <!-- Este é o título que aparece no topo da página -->
+    </header>
+<!-- Menu de navegação com as abas (Início, Calendário, Projeto ERER, Sobre Nós) -->
+    <nav>
+        <ul> <!-- Ao clicar em cada aba, o JavaScript chama a função showSection para exibir a seção correspondente -->
+            <li><a href="#" onclick="showSection('inicio')">Início</a></li>
+            <li><a href="#" onclick="showSection('calendario')">Calendário Escolar</a></li>
+            <li><a href="#" onclick="showSection('projeto-erer')">Projeto ERER</a></li>
+            <li><a href="#" onclick="showSection('sobre-nos')">Sobre Nós</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo principal do site -->
+    <main>
+        <!-- Cada seção terá seu próprio conteúdo, e só uma será visível por vez -->
+        
+        <!-- Seção de Início -->
+        <section id="inicio" class="section active">
+            <h2>Início</h2>
+            <p>Bem-vindos ao site da Escola Monsenhor Elias Tomasi, uma instituição com décadas de história e compromisso com a educação de qualidade, localizada em Mimoso do Sul, Espírito Santo.<p>
+
+<h3> Escola “Monsenhor Elias Tomasi” - Instituto Mimosense (Fundada em 1936) </h3>
+
+<p>A Escola de Ensino Fundamental e Médio "Monsenhor Elias Tomasi" foi fundada em 15 de novembro de 1936, na cidade de João Pessoa, hoje conhecida como Mimoso do Sul, no Espírito Santo. Inicialmente chamada de Instituto Mimosense, a escola nasceu com o objetivo de preparar os alunos para o exame de admissão ao curso fundamental.</p>
+<img src="https://i.imgur.com/vhobCVm.jpeg" alt="Foto Nova" class="nova"/>
+          <p>
+          <p2> Foto mais atual da Escola Monsenhor Elias Tomasi.</p2>
+          <h3>Como Tudo Começou: Instituto Mimosense</h3>
+
+<p>Em 1936, líderes educacionais da cidade de João Pessoa, como Dr. Arnolpho Fernando, Dr. Olympio José de Abreu e Dr. Carlos de Figueiredo Côtes, uniram forças para suprir a falta de ensino secundário na região. Dessa iniciativa nasceu o Instituto Mimosense, uma escola particular voltada para o ensino médio.</p>
+
+<p>Ao longo de seus 86 anos de história, a instituição passou por diversas mudanças, sendo hoje conhecida como E.E.E.F.M. Monsenhor Elias Tomasi, consolidando-se como referência na educação fundamental e média.</p>
+ <img src="https://i.imgur.com/CzemzTi.jpeg" alt="Foto Antiga" class="antiga"/>
+          <p>
+          <p2> Foto mais antiga da Escola Monsenhor Elias Tomasi, período próximo a sua inauguração.</p2>
+          
+         
+          
+        </section>
+
+        <!-- Seção de Calendário Escolar -->
+        <section id="calendario" class="section">
+ <title>Calendário Personalizado</title>
+    <style>
+        /* Estilos do calendário */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .header-day, .day {
+            background-color: #e0f7fa;
+            border: 1px solid #0288d1;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .header-day {
+            font-weight: bold;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .day {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .day:hover { background-color: #81d4fa; }
+
+        /* Modal */
+        #eventModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #eventInfo {
+            background-color: #ffffff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #0288d1;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #0288d1;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover { color: #01579b; }
+
+        /* Estilo dos botões */
+        button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover { background-color: #01579b; }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: transparent;
+            border-bottom: 2px solid #0288d1;
+        }
+
+        #monthName { color: #0288d1; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+
+        .button-container {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        /* Cores de destaque para diferentes eventos */
+        .highlight-ferias { background-color: #ffeb3b; }
+        .highlight-letivo { background-color: #64ffda; }
+        .highlight-feriados { background-color: #ff7043; }
+        .highlight-enem { background-color: #ffab40; }
+        .highlight-paebes { background-color: #b39ddb; }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h2 id="monthName"></h2>
+    </div>
+
+    <div id="calendarContainer"></div>
+
+    <div class="button-container">
+        <button id="prevMonth">Mês Anterior</button>
+        <button id="nextMonth">Próximo Mês</button>
+    </div>
+
+    <div class="button-container">
+        <button data-type="ferias">Férias</button>
+        <button data-type="letivo">Primeiro Dia Letivo</button>
+        <button data-type="feriados">Feriados</button>
+        <button data-type="enem">Dia do ENEM</button>
+        <button data-type="paebes">Prova do PAEBES</button>
+    </div>
+
+    <div id="eventModal">
+        <div id="eventInfo">
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <script>
+        const meses = [
+            { nome: "Janeiro", dias: 31 }, { nome: "Fevereiro", dias: 28 }, { nome: "Março", dias: 31 },
+            { nome: "Abril", dias: 30 }, { nome: "Maio", dias: 31 }, { nome: "Junho", dias: 30 },
+            { nome: "Julho", dias: 31 }, { nome: "Agosto", dias: 31 }, { nome: "Setembro", dias: 30 },
+            { nome: "Outubro", dias: 31 }, { nome: "Novembro", dias: 30 }, { nome: "Dezembro", dias: 31 }
+        ];
+
+        const eventos = {
+            ferias: { '0': [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30, 31],'1':[1,2,3,4], '6': [15, 31], '11': [16, 31] },
+            letivo: { '1': [5], '4': [20], '8': [9] },
+            feriados: { '1': [12, 13, 14], '2': [29], '3': [8], '4': [5, 30], '9': [15], '10': [15, 20], '11': [25] },
+            enem: { '10': [3, 10] },
+            paebes: { '9': [28, 29] }
+        };
+
+        let mesAtual = 0;
+        const anoAtual = 2024; // Definindo o ano como 2024
+        const calendarContainer = document.getElementById('calendarContainer');
+        const modal = document.getElementById('eventModal');
+        const modalContent = document.getElementById('eventInfo');
+        const span = document.getElementsByClassName('close')[0];
+
+        span.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => e.target == modal && (modal.style.display = 'none');
+
+        document.querySelectorAll('button[data-type]').forEach(button => {
+            button.onclick = () => marcarEventos(button.dataset.type);
+        });
+
+        function gerarCalendario(mesIndex) {
+            const monthName = document.getElementById('monthName');
+            calendarContainer.innerHTML = '';
+            monthName.innerText = `${meses[mesIndex].nome} ${anoAtual}`; // Inclui o mês e o ano
+
+            const calendarDiv = document.createElement('div');
+            calendarDiv.className = 'calendar';
+
+            const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+            diasSemana.forEach(dia => {
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'header-day';
+                headerDiv.innerText = dia;
+                calendarDiv.appendChild(headerDiv);
+            });
+
+            for (let dia = 1; dia <= meses[mesIndex].dias; dia++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'day';
+                dayDiv.setAttribute('data-day', dia);
+                dayDiv.innerText = dia;
+                calendarDiv.appendChild(dayDiv);
+
+                dayDiv.addEventListener('click', () => {
+                    const evento = getEventos(mesIndex, dia);
+                    if (evento) {
+                        modalContent.innerHTML = `
+                            <h2>${evento.titulo}</h2>
+                            <p>${evento.descricao}</p>
+                            <img src="${evento.imagem}" alt="${evento.titulo}" style="width: 100%; max-height: 300px;">
+                        `;
+                        modal.style.display = 'block';
+                    }
+                });
+            }
+
+            calendarContainer.appendChild(calendarDiv);
+        }
+
+        function marcarEventos(tipo) {
+            const diasEvento = eventos[tipo][mesAtual] || [];
+            const classe = `highlight-${tipo}`;
+
+            // Verifica se há eventos no mês atual
+            if (diasEvento.length === 0) {
+                const mesesComEventos = Object.keys(eventos[tipo]).map(mes => meses[mes].nome).join(', ');
+                alert(`Não há eventos para este tipo no mês atual. Meses com eventos: ${mesesComEventos}`);
+                return;
+            }
+
+            // Verifica se os dias já estão marcados e desmarca se necessário
+            const marcado = calendarContainer.querySelector(`.${classe}`);
+            if (marcado) {
+                desmarcarDias(classe);
+            } else {
+                marcarDias(diasEvento, classe);
+            }
+        }
+
+        function marcarDias(dias, classe) {
+            dias.forEach(dia => {
+                const dayDiv = calendarContainer.querySelector(`[data-day="${dia}"]`);
+                if (dayDiv) {
+                    dayDiv.classList.add(classe);
+                }
+            });
+        }
+
+        function desmarcarDias(classe) {
+            const diasMarcados = calendarContainer.querySelectorAll(`.${classe}`);
+            diasMarcados.forEach(dia => dia.classList.remove(classe));
+        }
+
+        function getEventos(mesIndex, dia) {
+            if ((mesIndex === 0 && dia >= 1 && dia <= 30) || (mesIndex === 6 && dia >= 15 && dia <= 23) || (mesIndex === 11 && dia >= 16 && dia <= 31)) {
+                return { titulo: 'Férias!', descricao: 'Obaaa, não tem aula!', imagem: 'https://www.sindicatodocomerciosbs.com.br/upl/juridica/Ferias.jpg' };
+            }
+
+               }
+
+        gerarCalendario(mesAtual);
+
+        document.getElementById('prevMonth').onclick = () => {
+            mesAtual = (mesAtual - 1 + 12) % 12;
+            gerarCalendario(mesAtual);
+        };
+
+        document.getElementById('nextMonth').onclick = () => {
+            mesAtual = (mesAtual + 1) % 12;
+            gerarCalendario(mesAtual);
+        };
+    </script>
+</body>
+
+      </section>
+
+        <!-- Seção de Projeto ERER -->
+        <section id="projeto-erer" class="section">
+    <div class="intro-text">
+        <p>
+            Abaixo estão alguns dos trabalhos realizados em conjunto por professores e alunos da Escola Monsenhor Elias Tomasi no projeto ERER ao longo de 2024, promovendo conhecimento e reflexão através de atividades colaborativas.
+        </p>
+    </div>
+
+    <div class="activity-card">
+        <h2>Criatividade em Movimento: Celebrando Lisa Gelobter e a Diversidade na Tecnologia</h2>
+        <p>
+            Nesta atividade, conduzida pelo professor Lucas Acha com a turma do 2º EM Técnico do período Vespertino, os alunos realizaram uma pesquisa sobre a trajetória de Lisa Gelobter, uma influente mulher negra no setor tecnológico dos EUA e criadora dos GIFs. Inspirados por sua história, os estudantes desenvolveram GIFs que destacam a importância de Lisa, celebram figuras e culturas negras e promovem conscientização contra o preconceito e a discriminação.
+        </p>
+        <div class="image-gallery">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTh4YTg4enpneXNjZ3V6bDJ0d2hhd2w0d21tMnBibnVlbW4ycm9tOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bxU3HDpSDQn7YBosv8/giphy.webp" alt="Gif 01">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExejM1bDJqdmVrZzNsdmZzMGM1Ym0wMjc5eHQxejZ4cXVtZXRldnhuZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PaaBswB0o7wtiZjZzn/giphy.gif" alt="Gif 02">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJmczdtZjZzOWl5MG9wbHlhM3oyOXJwcHJjaHg0NndqaDVtNHMybSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/raH4phTyNXEBW3vkGF/giphy.gif" alt="Gif 03">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExODlvc2VkdXlvcmZ6NTlpaW5rOHRjMWdwcGhzeTB6c2lqODV6NjBkMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mJ4OzKl1qQ7LC9ssLn/giphy.gif" alt="Gif 04">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTJ0Y3Y1bDFrMmN6a2g5bXBzajg1aXFrcmg5YnY3aTc4a2oycWowOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MvPRjDGqPKZ2r6ZZ2H/giphy.gif" alt="Gif 05">
+        </div>
+    </div>
+<div class="activity-card">
+    <h2>Criatividade em Movimento: Celebrando Lisa Gelobter e a Diversidade na Tecnologia</h2>
+    <p>No 1º EM Técnico, sob a orientação do professor Lucas Acha, os alunos exploraram a trajetória de Lisa Gelobter, uma notável figura no setor tecnológico. Durante a atividade, os estudantes desenvolveram GIFs inspirados na vida e realizações de Lisa, bem como em outras personalidades e culturas afrodescendentes, promovendo a conscientização sobre a importância da diversidade no campo da tecnologia.</p>
+    <div class="image-gallery">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHU0YnNieGprbnozdm82bDJkanIzcTRuaTU0MWh5OGV2bzV5d3phdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uL78eC0H2w156pnRwz/giphy.webp" alt="Gif 01">
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Nzc2VzeDE0dHF5aTFzd255MXdxNHBjYzBpcTU4c2J6Yjh0OWdpdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ev2XROMP8JdKWaHFLb/giphy.gif" alt="Gif 02">
+       <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGU0OXpnbzQyYWtsbDhlZGVjajM0ZmQzNTB0NTRwZm95Y3c2eDIwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SiNmQIurlxLI9mffur/giphy.gif" alt="Gif 03">
+       <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnVvZWZycW5yNXRmamE5MGprZ2Mydjgzb3c3OHl5bWkybm56Y3U0NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5vKEp2JH2Kj4ecMxSV/giphy.gif" alt="Gif 04">
+       <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExajE0aW16MnBlZHliMmEzZWpqcno0MGk5ZWJmZGRqeHRsb2swOWlwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/weEuXE5oNDWggOfT10/giphy.gif" alt="Gif 05">
+    </div>
+</div>
+
+</section>
+
+
+        <!-- Seção de Sobre Nós -->
+        <section id="sobre-nos" class="section">
+            <h2>Sobre Nós</h2>
+            <p>
+
+Somos a primeira turma do curso Técnico em Manutenção e Suporte em Informática da nossa escola, e este site é fruto de um projeto iniciado pelo nosso professor, Lucas Acha. Com o objetivo de deixar um legado para a comunidade escolar, decidimos criar este espaço como um canal de comunicação e referência, onde serão compartilhadas informações importantes sobre a escola, eventos, datas marcantes e, principalmente, atualizações sobre o ERER.
+          </p>
+          <p>
+Durante nossa jornada acadêmica, aprendemos muito mais do que os aspectos técnicos da informática. Desenvolvemos habilidades de colaboração, responsabilidade e um profundo senso de comunidade. Este site representa não apenas nosso trabalho final, mas um projeto que poderá ser continuado e ampliado pelas futuras turmas.
+          </p>
+          <p>
+Nosso objetivo é alimentar o site com atualizações constantes, de forma que ele se torne um registro vivo das atividades e conquistas de nossa turma e das que virão. Mais do que uma lembrança de nossa passagem, queremos que este projeto seja útil para todos, inspirando outros alunos a seguir o caminho do conhecimento e da inovação.
+</p>
+            <h2>Alunos
+          </h2>  
+
+<p> Leticia Albino Lopes
+<p> Letícia Vitória Lucinda Leal
+<p>Ághata de Souza Santos
+<p>Leonardo Sampaio da Silva Arangon
+<p>Ryan Braga Fernandes
+<p>Wallyson do Nascimento Angelo
+<p>Tiago Lamonica Rezende de Freitas
+<p>Matheus Rocha Tunholi
+<p>Taysson dos Santos Lamônica
+<p>Daniel Jovita Cordovil
+<p>Yasmim Silva Godoy
+<p> Kewwyn pena 
+          <h2> Professor</h2>
+<p> Lucas Acha          
+  
+  </p>
+
+  <a href='https://postimg.cc/DmKnvMhm' target='_blank'><img src='https://i.postimg.cc/XNrJgRDK/Whats-App-Image-2024-09-11-at-19-28-19.jpg' border='0' alt='Whats-App-Image-2024-09-11-at-19-28-19'/></a>        
+        
+    </main>
+
+    <!-- Script para controlar a troca de seções (HTML e JavaScript) -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
